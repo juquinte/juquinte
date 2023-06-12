@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+
+
+  <style>
+      #zoom-embeddable-phone-iframe {
+        height: 700px;
+        width: 840px;  
+      }
+</style>
+
+  
+  <iframe
+      src="https://go.zoom.us/crm-int/callbar/"
+      sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-scripts allow-same-origin allow-downloads"
+      allow="geolocation;autoplay;microphone;camera;display-capture;midi;encrypted-media;clipboard-write;"
+      id="zoom-embeddable-phone-iframe"></iframe>
+  
+<script>
+  
+  window.addEventListener('message', (e) => {
+  const data = e.data;
+  if (data) {
+    switch (data.type) { 
+      case 'zcc-contact-search-event': // listen to all the event types that you need
+        console.log(data.data); 
+        break;
+    }
+  }
+});
+  </script>
+  
+</body>
+</html>
+
+
+
+
