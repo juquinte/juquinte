@@ -59,6 +59,48 @@
        case 'zcc-init-config-request':
         e.source.postMessage(config, e.origin);
         break;
+        
+        case "zcc-call-recording":
+      console.log("this is call recording in main", e.data.data);
+      break;
+    case "zcc-end-postengagment": //-end-postengagment
+      console.log("This is zcc-end-postengagment Data", e.data.data);
+      break;
+    case "zcc-add-note":
+      console.log("This is zcc-add-note Data", e.data.data);
+      break;
+    case "zcc-call-recording":
+      console.log("this is call recording in main", e.data.data);
+      break;
+    case "zcc-screen-pop":
+      screenPop(e.data.data);
+      break;
+    case "zcc-phone-call-log":
+      console.log("This is zcc-phoneCallLog Data", e.data.data);
+      break;
+    case "zcc-call-ringing":
+      console.log("This is zcc-call-ringing Data", e.data.data);
+      break;
+    case "zcc-call-connected":
+      console.log("This is zcc-call-connected Data", e.data.data);
+      break;
+    case "zcc-call-ended":
+      console.log("This is zcc-call-ended Data", e.data.data);
+      break;
+    case "zcc-incomingPhone-request":
+      e.source.postMessage(callingDummydata(), e.origin)
+      console.log("This is zcc-call-ended Data", e.data.data);
+      break;
+
+    case "zcc-resize":
+      const data = e.data.data;
+
+      const width = data.widthInPixels;
+      const height = data.heightInPixels;
+      resize(width, height);
+      break;
+    default:
+      break;
     }
   }
 });
