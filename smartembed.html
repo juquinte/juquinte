@@ -9,8 +9,8 @@
 
   <style>
       #zoom-embeddable-phone-iframe {
-        height: 700px;
-        width: 840px;  
+        height: 496px;
+        width: 600px;  
       }
 </style>
 
@@ -52,51 +52,51 @@
   window.addEventListener('message', (e) => {
   const data = e.data;
   if (data) {
-    switch (data.type) { 
+    switch (data?.type) { 
       case 'zcc-contact-search-event': // listen to all the event types that you need
-        console.log(data.data); 
+        console.log(data?.data); 
         break;       
        case 'zcc-init-config-request':
         e.source.postMessage(config, e.origin);
         break;
         
         case "zcc-call-recording":
-      console.log("this is call recording in main", e.data.data);
+      console.log("this is call recording in main", data?.data);
       break;
     case "zcc-end-postengagment": //-end-postengagment
-      console.log("This is zcc-end-postengagment Data", e.data.data);
+      console.log("This is zcc-end-postengagment Data", data?.data);
       break;
     case "zcc-add-note":
-      console.log("This is zcc-add-note Data", e.data.data);
+      console.log("This is zcc-add-note Data", data?.data;
       break;
     case "zcc-call-recording":
-      console.log("this is call recording in main", e.data.data);
+      console.log("this is call recording in main", data?.data);
       break;
     case "zcc-screen-pop":
-      screenPop(e.data.data);
+  //    screenPop(data?.data);
       break;
     case "zcc-phone-call-log":
-      console.log("This is zcc-phoneCallLog Data", e.data.data);
+      console.log("This is zcc-phoneCallLog Data", data?.data);
       break;
     case "zcc-call-ringing":
-      console.log("This is zcc-call-ringing Data", e.data.data);
+      console.log("This is zcc-call-ringing Data", data?.data);
       break;
     case "zcc-call-connected":
-      console.log("This is zcc-call-connected Data", e.data.data);
+      console.log("This is zcc-call-connected Data", data?.data);
       break;
     case "zcc-call-ended":
-      console.log("This is zcc-call-ended Data", e.data.data);
+      console.log("This is zcc-call-ended Data", data?.data);
       break;
     case "zcc-incomingPhone-request":
       e.source.postMessage(callingDummydata(), e.origin)
-      console.log("This is zcc-call-ended Data", e.data.data);
+      console.log("This is zcc-call-ended Data", data?.data);
       break;
 
     case "zcc-resize":
-      const data = e.data.data;
+      const data = data?.data;
 
-      const width = data.widthInPixels;
-      const height = data.heightInPixels;
+      const width = data?.widthInPixels;
+      const height = data?.heightInPixels;
       resize(width, height);
       break;
     default:
