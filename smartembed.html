@@ -23,12 +23,41 @@
   
 <script>
   
+  const config = {
+  type: "zcc-init-config-response",
+  data: {
+    screenPopEvent: "RINGING", //ANSWER,RINGING
+    applicationType: "Embedded Service",
+    ticketConfigs: {
+      autoCreate: false,
+    },
+    callLogConfigs: {
+      autoLog: true,
+      autoUpdateCallURL: true,
+    },
+    searchConfigs: {
+      ivrConfigs: {
+        enabled: false,
+        mappings: [],
+      },
+      phoneConfigs: [],
+      noMatch: {
+        operation: "SCREENPOP",
+        entity: "contact",
+      },
+    },
+  }};
+  
+  
   window.addEventListener('message', (e) => {
   const data = e.data;
   if (data) {
     switch (data.type) { 
       case 'zcc-contact-search-event': // listen to all the event types that you need
         console.log(data.data); 
+        break;       
+       case 'zcc-init-config-request':
+        e.source.postMessage(config, e.origin);
         break;
     }
   }
