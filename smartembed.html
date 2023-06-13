@@ -48,6 +48,36 @@
     },
   }};
   
+  
+  let dummydata = {
+  type: "zcc-incomingPhone-response",
+  data: [
+    /* {
+      "id": "60cfd5af-b6c7-ed11-b597-000d3a1f0889",
+      "name": "ZOOM",
+      "phone": "+16692520210",
+      "email": null,
+      "userEntity": "account"
+  }, */
+    {
+      id: "65aa9abc-b6c7-ed11-b597-000d3a1f0889",
+      name: "pareshRadadiya",
+      phone: "+16692520210",
+      email: null,
+      userEntity: "account",
+    },
+  ],
+};
+
+function callingDummydata() {
+  return dummydata;
+}
+  
+  function screenPop(data) {
+  console.log({data});
+  
+  }
+  
   window.addEventListener('message', (e) => {
   
   if (e.data) {
@@ -72,7 +102,7 @@
       console.log("this is call recording in main", e.data.data);
       break;
     case "zcc-screen-pop":
-  //    screenPop(e.data.data);
+      screenPop(e.data.data);
       break;
     case "zcc-phone-call-log":
       console.log("This is zcc-phoneCallLog Data", e.data.data);
@@ -87,7 +117,7 @@
       console.log("This is zcc-call-ended Data", e.data.data);
       break;
     case "zcc-incomingPhone-request":
-  //    e.source.postMessage(callingDummydata(), e.origin)
+      e.source.postMessage(callingDummydata(), e.origin)
       console.log("This is zcc-call-ended Data", e.data.data);
       break;
 
