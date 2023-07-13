@@ -3,8 +3,8 @@
 <body>
 
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+<h1>Smart Embed</h1>
+<p>sample code</p>
 
 
   <style>
@@ -118,7 +118,7 @@ function callingDummydata() {
       break;
     case "zcc-incomingPhone-request":
       e.source.postMessage(callingDummydata(), e.origin)
-      console.log("This is zcc-call-ended Data", e.data.data);
+      console.log("zcc-incomingPhone-request", e.data.data);
       break;
 
     case "zcc-resize":
