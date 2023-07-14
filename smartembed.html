@@ -4,7 +4,9 @@
 
 
 <h1>Smart Embed</h1>
-<p><button onclick="clickToDial('+14153499666')">4153499666</button></p>
+<p><button onclick="clickToDial()">Click to Call</button>
+   <input type="text" id="phonenumber" name="phonenumber" value="4153499666"><br><br>
+</p>
 
 
 
@@ -136,19 +138,23 @@ function callingDummydata() {
   }
 });
   
-function clickToDial (number)
+function clickToDial ()
 {
+
+ const number = document.getElementById('phonenumber').value;
+
+ console.log(number);
 
   window.frames["zoom-embeddable-phone-iframe"].contentWindow.postMessage({
     type:"onclicktoact",
     data:{
     id: "1",
-    name: "Julian",
-    phone: "+14153499666",
+    name: "Julian Quintero",
+    phone: number,
     email: "",
     userEntity: "contact"
 }},"*");
-console.log(number);
+
 
 }
 
