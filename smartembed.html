@@ -124,7 +124,7 @@ function callingDummydata() {
       break;
     case "zcc-incomingPhone-request":
       e.source.postMessage(callingDummydata(), e.origin)
-      console.log("zcc-incomingPhone-request", e.data.data);
+      console.log("zcc-incomingPhone-request", e.data);
       break;
 
     case "zcc-resize":
